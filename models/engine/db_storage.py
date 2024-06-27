@@ -2,8 +2,8 @@
 """ Module for DBStorage class """
 import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session
-from models.base_model import BaseModel, Base
+from sqlalchemy.orm import scoped_session, sessionmaker
+from models.base_model import Base
 from models.state import State
 from models.city import City
 from models.user import User
@@ -12,10 +12,12 @@ from models.amenity import Amenity
 from models.review import Review
 
 class DBStorage:
-	"""
-	This class represents the database storage engine for the AirBnB clone project.
+	__engine = None
+	__session = None
+	"""This class represents the database storage engine for the AirBnB clone project.
 	It provides methods to interact with the database and perform CRUD operations.
 	"""
+    
 
 	def __init__(self):
 		"""
